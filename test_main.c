@@ -4,6 +4,8 @@
 #include "push_swap.h"
 #include <stdio.h>
 
+// Display stack
+
 void print_stack(t_stack *stack)
 {
 	t_node *current = stack->head;
@@ -29,17 +31,20 @@ void test_sa()
 	t_stack a;
 	t_node *node1 = create_node(1);
 	t_node *node2 = create_node(2);
+	t_node *node3 = create_node(3);
 
 	a.head = NULL;
 	a.size = 0;
 
 	add_node(&a, node1);
 	add_node(&a, node2);
+	add_node(&a, node3);
 
 	printf("Stack A before sa: ");
 	print_stack(&a);
 
 	sa(&a);
+	//sa(&a);
 
 	printf("Stack A after sa: ");
 	print_stack(&a);
@@ -105,7 +110,7 @@ void test_ss()
 	free_stack(&b);
 }
 
-int main()
+int main(void)
 {
 	printf("Testing sa function:\n");
 	test_sa();
