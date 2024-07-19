@@ -105,19 +105,118 @@ void test_ss()
 	free_stack(&b);
 }
 
+void	test_ra()
+{
+	t_stack a;
+	t_node	*node1 = create_node(1);
+	t_node	*node2 = create_node(2);
+	t_node	*node3 = create_node(3);
+
+	a.head = NULL;
+	a.size = 0;
+
+	add_node(&a, node1);
+	add_node(&a, node2);
+	add_node(&a, node3);
+
+	printf("Stack A before ra: ");
+	print_stack(&a);
+
+	ra(&a);
+
+	printf("Stack A after ra: ");
+	print_stack(&a);
+
+	free_stack(&a);
+}
+
+void	test_rb()
+{
+	t_stack b;
+	t_node	*node4 = create_node(4);
+	t_node	*node5 = create_node(5);
+	t_node	*node6 = create_node(6);
+
+	b.head = NULL;
+	b.size = 0;
+
+	add_node(&b, node4);
+	add_node(&b, node5);
+	add_node(&b, node6);
+
+	printf("Stack B before rb: ");
+	print_stack(&b);
+
+	rb(&b);
+
+	printf("Stack B after rb: ");
+	print_stack(&b);
+
+	free_stack(&b);
+}
+
+void	test_rr()
+{
+	t_stack a;
+	t_stack b;
+	t_node *node1 = create_node(1);
+	t_node *node2 = create_node(2);
+	t_node *node3 = create_node(3);
+	t_node *node4 = create_node(4);
+	t_node *node5 = create_node(5);
+	t_node *node6 = create_node(6);
+
+	a.head = NULL;
+	a.size = 0;
+	b.head = NULL;
+	b.size = 0;
+
+	add_node(&a, node1);
+	add_node(&a, node2);
+	add_node(&a, node3);
+	add_node(&b, node4);
+	add_node(&b, node5);
+	add_node(&b, node6);
+
+	printf("Stack A before ra: ");
+	print_stack(&a);
+	printf("Stack B before rb: ");
+	print_stack(&b);
+
+	rr(&a, &b);
+
+	printf("Stack A after ra: ");
+	print_stack(&a);
+	printf("Stack B after rb: ");
+	print_stack(&b);
+
+	free_stack(&a);
+	free_stack(&b);
+}
+
 int main()
 {
-	printf("Testing sa function:\n");
+	/* printf("Testing sa function:\n");
 	test_sa();
-	printf("\n");
+	printf("\n"); */
 
-	printf("Testing sb function:\n");
+	/* printf("Testing sb function:\n");
 	test_sb();
-	printf("\n");
+	printf("\n"); */
 
-	printf("Testing ss function:\n");
+	/* printf("Testing ss function:\n");
 	test_ss();
-	printf("\n");
+	printf("\n"); */
 
-	return 0;
+	/* printf("Testing ra function:\n");
+	test_ra();
+	printf("\n"); */
+
+	/* printf("Testing rb function:\n");
+	test_rb();
+	printf("\n"); */
+
+	printf("Testing rr function:\n");
+	test_rr();
+	printf("\n");
 }
