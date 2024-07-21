@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_main.c                                   :+:      :+:    :+:   */
+/*   push_swap_instruct_part_three.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/17 15:47:41 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/21 20:11:18 by fpaulas-         ###   ########.fr       */
+/*   Created: 2024/07/21 21:51:48 by fpaulas-          #+#    #+#             */
+/*   Updated: 2024/07/21 21:52:11 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Main function that creates stacks and check args then sort it
-
-int main(int argc, char **argv)
+void	ra(t_stack *a)
 {
-	t_stack a;
-	t_stack b;
+	if (a->size < 2)
+		return ;
+	a->head = a->head->next;
+	write(1, "ra\n", 3);
+}
 
-	if (argc < 2)
-		return (0);
-	a.head = NULL;
-	a.size = 0;
-	b.head = NULL;
-	b.size = 0;
-	if (!parse_args(argc, argv, &a))
-	{
-		write(2, "Error\n", 6);
-		free_stack(&a);
-		return (1);
-	}
-	sort_stack(&a, &b);
-	free_stack(&a);
-	free_stack(&b);
-	return (0);
+void	rb(t_stack *b)
+{
+	if (b->size < 2)
+		return ;
+	b->head = b->head->next;
+	write(1, "rb\n", 3);
+}
+
+void	rr(t_stack *a, t_stack *b)
+{
+	ra(a);
+	rb(b);
+	write(1, "rr\n", 3);
 }
