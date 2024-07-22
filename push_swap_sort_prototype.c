@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:03:55 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/22 21:03:40 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/22 22:09:46 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,47 @@
 
 static int	is_sorted(t_stack *a)
 {
-	
+	t_node	*current;
+	int		i;
+
+	i = 0;
+	if (a->size < 2)
+		return (1);
+	current = a->head;
+	while (i < a->size - 1)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+		i++;
+	}
+	return (1);
+}
+
+static void	sort_three(t_stack *a)
+{
+	int	first;
+	int	second;
+	int	third;
+
+	first = a->head->value;
+	second = a->head->next->value;
+	third = a->head->next->next->value;
+
+	if (first > second && first < third && second < third)
+		sa(a);
+	else if (first > second && second > third)
+	{
+		sa(a);
+		rra(a);
+	}
+	else if (first > second && first > third && second < third)
+		ra(a);
+	else if (first < second && first < third && second > third)
+	{
+		sa(a);
+		ra(a);
+	}
+	else if (first < second && first > third && second > third)
+		rra(a);
 }
