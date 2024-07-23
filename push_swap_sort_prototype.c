@@ -6,13 +6,13 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:03:55 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/22 22:09:46 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/23 02:37:41 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	is_sorted(t_stack *a)
+int	is_sorted(t_stack *a)
 {
 	t_node	*current;
 	int		i;
@@ -31,7 +31,7 @@ static int	is_sorted(t_stack *a)
 	return (1);
 }
 
-static void	sort_three(t_stack *a)
+void	sort_three(t_stack *a)
 {
 	int	first;
 	int	second;

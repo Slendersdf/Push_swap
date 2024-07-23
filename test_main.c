@@ -16,7 +16,6 @@ void print_stack(t_stack *stack)
 		printf("Stack is empty\n");
 		return;
 	}
-
 	while (i < stack->size)
 	{
 		printf("%d ", current->value);
@@ -264,7 +263,7 @@ int main()
 	test_rr();
 	printf("\n"); */
 
-	printf("Testing rrr function:\n");
+	/* printf("Testing rrr function:\n");
 	test_rrr();
-	printf("\n");
+	printf("\n"); */
 }

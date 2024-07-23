@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:49:38 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/17 15:49:40 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/23 02:40:01 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,9 @@ void	free_stack(t_stack *stack);
 
 // Parsing and error handling
 int	 parse_args(int argc, char **argv, t_stack *a);
+
+// Sorting functions
+int	is_sorted(t_stack *a);
+void	sort_three(t_stack *a);
 
 #endif
