@@ -6,30 +6,11 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:03:55 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/23 19:23:48 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/23 23:45:35 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	is_sorted(t_stack *a)
-{
-	t_node	*current;
-	int		i;
-
-	i = 0;
-	if (a->size < 2)
-		return (1);
-	current = a->head;
-	while (i < a->size - 1)
-	{
-		if (current->value > current->next->value)
-			return (0);
-		current = current->next;
-		i++;
-	}
-	return (1);
-}
 
 void	sort_three(t_stack *a)
 {
@@ -61,11 +42,31 @@ void	sort_three(t_stack *a)
 
 void	sort_five(t_stack *a, t_stack *b)
 {
-	push_smallest_to_b(a, b);
-	push_smallest_to_b(a, b);
+	int	min;
+	int	pos;
+
+	while (a->size > 3)
+	{
+		min = find_min(a);
+		pos = find_position(a, min);
+		move_to_top(a, pos, 'a');
+		pb(a, b);
+	}
 	sort_three(a);
-	pa(a, b);
-	pa(a, b);
+	while (b->size > 0)
+		pa(a, b);
+}
+
+void	sort_stack(t_stack *a, t_stack *b)
+{
+	if (is_sorted(a))
+		return ;
+	if (a->size == 2 && a->head->value > a->head->next->value)
+		sa(a);
+	else if (a->size == 3)
+		sort_three(a);
+	else if (a->size <= 5)
+		sort_five(a, b);
 }
 
 

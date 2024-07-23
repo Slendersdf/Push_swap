@@ -67,6 +67,9 @@ int	main(void)
 		print_stack(&a);
 	}
 	else
-		printf("Stack A sort failed");
+	{
+		printf("Stack A sort failed\n");
+		print_stack(&a);
+	}
 	free_stack(&a);
 }
