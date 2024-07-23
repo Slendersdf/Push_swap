@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:49:38 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/23 02:40:01 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/23 18:13:26 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,15 @@ void	add_node(t_stack *stack, t_node *node);
 t_node	*remove_node(t_stack *stack);
 void	free_stack(t_stack *stack);
 
+int find_smallest_position(t_stack *stack);
+void push_smallest_to_b(t_stack *a, t_stack *b);
+
 // Parsing and error handling
 int	 parse_args(int argc, char **argv, t_stack *a);
 
-// Sorting functions
+// Tempo Sorting functions
 int	is_sorted(t_stack *a);
 void	sort_three(t_stack *a);
+void	sort_five(t_stack *a, t_stack *b);
 
 #endif

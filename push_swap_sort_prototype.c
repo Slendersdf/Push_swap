@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:03:55 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/23 02:37:41 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/23 19:23:48 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,3 +58,14 @@ void	sort_three(t_stack *a)
 	else if (first < second && first > third && second > third)
 		rra(a);
 }
+
+void	sort_five(t_stack *a, t_stack *b)
+{
+	push_smallest_to_b(a, b);
+	push_smallest_to_b(a, b);
+	sort_three(a);
+	pa(a, b);
+	pa(a, b);
+}
+
+

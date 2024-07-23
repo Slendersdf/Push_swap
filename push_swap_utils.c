@@ -44,19 +44,20 @@ t_node  *remove_node(t_stack *stack)
 
 	if (!stack->head)
 		return (NULL);
-	node = stack->head;
+	node = stack->head; // 1 (5 4 3 2)
 	if (stack->size == 1)
 		stack->head = NULL;
 	else
 	{
-		stack->head = node->next;
-		node->prev->next = node->next;
-		node->next->prev = node->prev;
+		stack->head = node->next; // 1 (5 4 3 2) = 5 (4 3 2 1)
+		node->prev->next = node->next; // 2 pointe sur 5
+		node->next->prev = node->prev; // 5 pointe sur 2
 	}
 	node->prev = node;
 	node->next = node;
+	//1 prev et next pointe sur 1
 	stack->size--;
-	return (node);
+	return (node); //On recupere 1 comme si 1 n'avait jamais existe de la liste original
 }
 
 // Free the memory of a stack
@@ -77,4 +78,60 @@ void	free_stack(t_stack *stack)
 		stack->size--;
 	}
 	stack->head = NULL;
+}
+
+//Function to find the position of the smallest value of a stack
+
+int find_smallest_position(t_stack *stack)
+{
+	int pos;
+	int i;
+	t_node *current;
+	int min_value;
+
+	pos = 0;
+	i = 0;
+	current = stack->head;
+	min_value = current->value;
+	while (i < stack->size)
+	{
+		if (current->value < min_value)
+		{
+			min_value = current->value;
+			pos = i;
+		}
+		current = current->next;
+		i++;
+	}
+	return (pos);
+}
+
+void push_smallest_to_b(t_stack *a, t_stack *b)
+{
+	int pos = find_smallest_position(a);
+
+	if (pos == 0)
+		pb(a, b);
+	else if (pos == 1)
+	{
+		sa(a);
+		pb(a, b);
+	}
+	else if (pos == 2)
+	{
+		ra(a);
+		ra(a);
+		pb(a, b);
+	}
+	else if (pos == 3)
+	{
+		rra(a);
+		rra(a);
+		pb(a, b);
+	}
+	else if (pos == 4)
+	{
+		rra(a);
+		pb(a, b);
+	}
 }
