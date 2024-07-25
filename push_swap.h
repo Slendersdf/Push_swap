@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:49:38 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/23 23:47:54 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/25 22:48:43 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,9 @@ int	find_min(t_stack *stack);
 int	find_position(t_stack *stack, int value);
 void	move_to_top(t_stack *stack, int pos, char stack_name);
 
-int find_smallest_position(t_stack *stack);
-void push_smallest_to_b(t_stack *a, t_stack *b);
-
 // Parsing and error handling
 int	 parse_args(int argc, char **argv, t_stack *a);
+int parse_args_helper(int argc, char **argv, t_stack *a);
 
 // Tempo Sorting functions
 void	sort_three(t_stack *a);

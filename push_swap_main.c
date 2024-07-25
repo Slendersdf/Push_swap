@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:47:41 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/21 20:11:18 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/25 22:15:29 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int main(int argc, char **argv)
 		free_stack(&a);
 		return (1);
 	}
-	sort_stack(&a, &b);
+	if (!is_sorted(&a))
+		sort_stack(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);
