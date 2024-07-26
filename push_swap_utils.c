@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 20:25:23 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/25 20:25:25 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/26 07:08:52 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,4 +90,35 @@ void	free_stack(t_stack *stack)
 		stack->size--;
 	}
 	stack->head = NULL;
+}
+
+void ft_free_split(char **split)
+{
+    int i;
+
+    i = 0;
+    while (split[i])
+    {
+        free(split[i]);
+        i++;
+    }
+    free(split);
+}
+
+void add_node_to_end(t_stack *stack, t_node *node)
+{
+    if (!stack->head)
+    {
+        stack->head = node;
+        node->prev = node;
+        node->next = node;
+    }
+    else
+    {
+        node->prev = stack->head->prev;
+        node->next = stack->head;
+        stack->head->prev->next = node;
+        stack->head->prev = node;
+    }
+    stack->size++;
 }

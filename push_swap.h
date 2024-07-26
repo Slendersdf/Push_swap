@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:49:38 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/25 22:48:43 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/26 22:31:46 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,11 @@ int parse_args_helper(int argc, char **argv, t_stack *a);
 void	sort_three(t_stack *a);
 void	sort_five(t_stack *a, t_stack *b);
 void	sort_stack(t_stack *a, t_stack *b);
+
+// ft_split
+char **ft_split(char *str, char c);
+int 	parse_args_string(char *arg_str, t_stack *a);
+void 	ft_free_split(char **split);
+void add_node_to_end(t_stack *stack, t_node *node);
 
 #endif
