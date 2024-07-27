@@ -6,11 +6,31 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:47:41 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/26 06:56:53 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/27 16:15:23 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "stdio.h" // A enlever
+
+void print_stack(t_stack *stack)
+{
+	t_node *current = stack->head;
+	int i = 0;
+
+	if (!current)
+	{
+		printf("Stack is empty\n");
+		return;
+	}
+	while (i < stack->size)
+	{
+		printf("%d ", current->value);
+		current = current->next;
+		i++;
+	}
+	printf("\n");
+}
 
 // Main function that creates stacks and check args then sort it
 
@@ -49,6 +69,7 @@ int main(int argc, char **argv)
     }
     if (!is_sorted(&a))
         sort_stack(&a, &b);
+    print_stack(&a);
     free_stack(&a);
     free_stack(&b);
     return (0);
