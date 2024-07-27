@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:49:38 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/27 15:59:43 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/27 17:07:41 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,15 @@ void 	ft_free_split(char **split);
 void add_node_to_end(t_stack *stack, t_node *node);
 
 // 100 elements
-void    sort_100(t_stack *a, t_stack *b);
+/* void    sort_100(t_stack *a, t_stack *b);
 void    sort_20(t_stack *a, t_stack *b);
+int     find_max(t_stack *stack); */
+int count_in_range(t_stack *stack, int min, int max);
+void sort_100(t_stack *a, t_stack *b);
 int     find_max(t_stack *stack);
 
 // 500 elements
 void    sort_500(t_stack *a, t_stack *b);
-void    sort_50(t_stack *a, t_stack *b);
+/* void    sort_50(t_stack *a, t_stack *b); */
 
 #endif

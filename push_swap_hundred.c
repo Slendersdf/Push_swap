@@ -1,70 +1,69 @@
 #include "push_swap.h"
 
-void    sort_100(t_stack *a, t_stack *b)
+void sort_100(t_stack *a, t_stack *b)
 {
-    int i;
-    int min;
-    int pos;
+    int total_chunks = 5;
+    int min = find_min(a);
+    int max = find_max(a);
+    int range = max - min + 1;
+    int chunk_range = range / total_chunks;
 
-    while (a->size > 0)
+    for (int i = 0; i < total_chunks; i++)
     {
-        i = 0;
-        min = find_min(a);
-        pos = find_position(a, min);
-        move_to_top(a, pos, 'a');
-        pb(a, b);
-        i++;
-        if (i == 20)
+        int chunk_min = min + i * chunk_range;
+        int chunk_max = chunk_min + chunk_range - 1;
+
+        while (a->size > 0 && count_in_range(a, chunk_min, chunk_max) > 0)
         {
-            sort_20(a, b);
-            i = 0;
+            if (a->head->value >= chunk_min && a->head->value <= chunk_max)
+            {
+                pb(a, b);
+                if (b->head->value < chunk_min + chunk_range / 2)
+                    rb(b);
+            }
+            else
+                ra(a);
         }
     }
+
     while (b->size > 0)
     {
-        min = find_max(b);
-        pos = find_position(b, min);
-        move_to_top(b, pos, 'b');
+        int max_pos = find_position(b, find_max(b));
+        move_to_top(b, max_pos, 'b');
         pa(a, b);
     }
 }
 
-void    sort_20(t_stack *a, t_stack *b)
+int count_in_range(t_stack *stack, int min, int max)
 {
-    int min;
-    int pos;
-
-    while (a->size > 0)
+    int count = 0;
+    t_node *current = stack->head;
+    for (int i = 0; i < stack->size; i++)
     {
-        min = find_min(a);
-        pos = find_position(a, min);
-        move_to_top(a, pos, 'a');
-        pb(a, b);
+        if (current->value >= min && current->value <= max)
+            count++;
+        current = current->next;
     }
-    while (b->size > 0)
-    {
-        min = find_min(b);
-        pos = find_position(b, min);
-        move_to_top(b, pos, 'b');
-        pa(a, b);
-    }
+    return count;
 }
 
 int     find_max(t_stack *stack)
 {
-    t_node   *current;
-    int      max;
-    int      i;
+   t_node   *current;
+   int      max;
+   int      i;
 
-    i = 0;
-    current = stack->head;
-    max = current->value;
-    while (i < stack->size)
-    {
-        if (current->value > max)
-            max = current->value;
-        current = current->next;
-        i++;
-    }
-    return (max);
+
+   i = 0;
+   current = stack->head;
+   max = current->value;
+   while (i < stack->size)
+   {
+       if (current->value > max)
+           max = current->value;
+       current = current->next;
+       i++;
+   }
+   return (max);
 }
+

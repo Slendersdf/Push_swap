@@ -1,51 +1,35 @@
 #include "push_swap.h"
 
-void    sort_500(t_stack *a, t_stack *b)
+void sort_500(t_stack *a, t_stack *b)
 {
-    int i;
-    int min;
-    int pos;
+    int total_chunks = 10;
+    int min = find_min(a);
+    int max = find_max(a);
+    int range = max - min + 1;
+    int chunk_range = range / total_chunks;
 
-    while (a->size > 0)
+    for (int i = 0; i < total_chunks; i++)
     {
-        i = 0;
-        min = find_min(a);
-        pos = find_position(a, min);
-        move_to_top(a, pos, 'a');
-        pb(a, b);
-        i++;
-        if (i == 50)
+        int chunk_min = min + i * chunk_range;
+        int chunk_max = chunk_min + chunk_range - 1;
+
+        while (a->size > 0 && count_in_range(a, chunk_min, chunk_max) > 0)
         {
-            sort_50(a, b);
-            i = 0;
+            if (a->head->value >= chunk_min && a->head->value <= chunk_max)
+            {
+                pb(a, b);
+                if (b->head->value < chunk_min + chunk_range / 2)
+                    rb(b);
+            }
+            else
+                ra(a);
         }
     }
+
     while (b->size > 0)
     {
-        min = find_max(b);
-        pos = find_position(b, min);
-        move_to_top(b, pos, 'b');
-        pa(a, b);
-    }
-}
-
-void    sort_50(t_stack *a, t_stack *b)
-{
-    int min;
-    int pos;
-
-    while (a->size > 0)
-    {
-        min = find_min(a);
-        pos = find_position(a, min);
-        move_to_top(a, pos, 'a');
-        pb(a, b);
-    }
-    while (b->size > 0)
-    {
-        min = find_min(b);
-        pos = find_position(b, min);
-        move_to_top(b, pos, 'b');
+        int max_pos = find_position(b, find_max(b));
+        move_to_top(b, max_pos, 'b');
         pa(a, b);
     }
 }
