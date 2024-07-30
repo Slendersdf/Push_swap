@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 20:23:45 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/26 22:39:29 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/30 20:01:09 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ static int	check_duplicate(t_stack *a, int num)
 	return (0);
 }
 
-// Main check function to check for args, check for duplicates and then add nodes to stack
+// Main check function to check for args,
+// check for duplicates and then add nodes to stack
 
 int	parse_args(int argc, char **argv, t_stack *a)
 {

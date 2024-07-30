@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:03:55 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/27 15:26:30 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/30 22:31:53 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	sort_three(t_stack *a)
 	first = a->head->value;
 	second = a->head->next->value;
 	third = a->head->next->next->value;
-
 	if (first > second && first < third && second < third)
 		sa(a);
 	else if (first > second && second > third)
@@ -70,5 +69,3 @@ void	sort_stack(t_stack *a, t_stack *b)
 	else if (a->size <= 500)
 		sort_500(a, b);
 }
-
-

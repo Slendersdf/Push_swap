@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:49:38 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/27 17:07:41 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/30 22:43:20 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,14 @@ t_node	*remove_node(t_stack *stack);
 void	free_stack(t_stack *stack);
 
 // Sort helper functions
-int	is_sorted(t_stack *a);
-int	find_min(t_stack *stack);
-int	find_position(t_stack *stack, int value);
+int		is_sorted(t_stack *a);
+int		find_min(t_stack *stack);
+int		find_position(t_stack *stack, int value);
 void	move_to_top(t_stack *stack, int pos, char stack_name);
 
 // Parsing and error handling
-int	 parse_args(int argc, char **argv, t_stack *a);
-int parse_args_helper(int argc, char **argv, t_stack *a);
+int		parse_args(int argc, char **argv, t_stack *a);
+int		parse_args_helper(int argc, char **argv, t_stack *a);
 
 // Tempo Sorting functions
 void	sort_three(t_stack *a);
@@ -64,21 +64,25 @@ void	sort_five(t_stack *a, t_stack *b);
 void	sort_stack(t_stack *a, t_stack *b);
 
 // ft_split
-char **ft_split(char *str, char c);
-int 	parse_args_string(char *arg_str, t_stack *a);
-void 	ft_free_split(char **split);
-void add_node_to_end(t_stack *stack, t_node *node);
+char	**ft_split(char *str, char c);
+int		parse_args_string(char *arg_str, t_stack *a);
+void	ft_free_split(char **split);
+void	add_node_to_end(t_stack *stack, t_node *node);
 
 // 100 elements
-/* void    sort_100(t_stack *a, t_stack *b);
-void    sort_20(t_stack *a, t_stack *b);
-int     find_max(t_stack *stack); */
-int count_in_range(t_stack *stack, int min, int max);
-void sort_100(t_stack *a, t_stack *b);
-int     find_max(t_stack *stack);
+int		count_in_range(t_stack *stack, int min, int max);
+void	sort_100(t_stack *a, t_stack *b);
+int		find_max(t_stack *stack);
+void	process_chunk(t_stack *a, t_stack *b, int chunk_min, int chunk_range);
+void	sort_b_stack(t_stack *a, t_stack *b);
 
 // 500 elements
-void    sort_500(t_stack *a, t_stack *b);
-/* void    sort_50(t_stack *a, t_stack *b); */
+void	sort_500(t_stack *a, t_stack *b);
+void	sort_b_stack(t_stack *a, t_stack *b);
+
+// Main
+void	initialize_stacks(t_stack *a, t_stack *b);
+void	handle_error(t_stack *a);
+int		parse_arguments(int argc, char **argv, t_stack *a);
 
 #endif

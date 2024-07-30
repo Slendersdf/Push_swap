@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/21 21:46:47 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/21 21:52:16 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/30 21:32:24 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void	pa(t_stack *a, t_stack *b)
 {
-	t_node *node;
+	t_node	*node;
 
 	if (b->size == 0)
 		return ;
@@ -27,7 +27,7 @@ void	pa(t_stack *a, t_stack *b)
 
 void	pb(t_stack *a, t_stack *b)
 {
-	t_node *node;
+	t_node	*node;
 
 	if (a->size == 0)
 		return ;

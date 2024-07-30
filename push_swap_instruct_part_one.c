@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:50:52 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/21 21:51:45 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/30 21:32:06 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	sa(t_stack *a)
 {
-	int tmp;
+	int	tmp;
 
 	if (a->size < 2)
-	return ;
+		return ;
 	tmp = a->head->value;
 	a->head->value = a->head->next->value;
 	a->head->next->value = tmp;
@@ -26,10 +26,10 @@ void	sa(t_stack *a)
 
 void	sb(t_stack *b)
 {
-	int tmp;
+	int	tmp;
 
 	if (b->size < 2)
-	return ;
+		return ;
 	tmp = b->head->value;
 	b->head->value = b->head->next->value;
 	b->head->next->value = tmp;
@@ -44,4 +44,3 @@ void	ss(t_stack *a, t_stack *b)
 	sb(b);
 	write(1, "ss\n", 3);
 }
-

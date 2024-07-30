@@ -1,34 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_five_hundred.c                           :+:      :+:    :+:   */
+/*   push_swap_utils_two.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/30 20:13:29 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/30 23:06:20 by fpaulas-         ###   ########.fr       */
+/*   Created: 2024/07/30 23:05:13 by fpaulas-          #+#    #+#             */
+/*   Updated: 2024/07/30 23:05:47 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_500(t_stack *a, t_stack *b)
+// Free the memory of a stack
+
+void	free_stack(t_stack *stack)
 {
-	int	total_chunks;
-	int	range;
-	int	chunk_range;
-	int	min;
+	t_node	*current;
+	t_node	*next;
+
+	if (!stack->head)
+		return ;
+	current = stack->head;
+	while (stack->size > 0)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+		stack->size--;
+	}
+	stack->head = NULL;
+}
+
+void	ft_free_split(char **split)
+{
 	int	i;
 
-	total_chunks = 10;
-	min = find_min(a);
-	range = find_max(a) - find_min(a) + 1;
-	chunk_range = range / total_chunks;
 	i = 0;
-	while (i < total_chunks)
+	while (split[i])
 	{
-		process_chunk(a, b, min + (i * chunk_range), chunk_range);
+		free(split[i]);
 		i++;
 	}
-	sort_b_stack(a, b);
+	free(split);
 }

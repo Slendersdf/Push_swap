@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 22:31:29 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/25 22:49:42 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/07/30 22:38:09 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,6 @@ int	is_sorted(t_stack *a)
 		i++;
 	}
 	return (1);
-}
-
-// Function that finds the minimum value of a stack
-
-int	find_min(t_stack *stack)
-{
-	t_node	*current;
-	int		min;
-	int		i;
-
-	i = 0;
-	current = stack->head;
-	min = current->value;
-
-	while (i < stack->size)
-	{
-		if (current->value < min)
-			min = current->value;
-		current = current->next;
-		i++;
-	}
-	return (min);
 }
 
 int	find_position(t_stack *stack, int value)
@@ -97,4 +75,23 @@ void	move_to_top(t_stack *stack, int pos, char stack_name)
 		}
 		moves--;
 	}
+}
+
+int	count_in_range(t_stack *stack, int min, int max)
+{
+	int		i;
+	int		count;
+	t_node	*current;
+
+	i = 0;
+	count = 0;
+	current = stack->head;
+	while (i < stack->size)
+	{
+		if (current->value >= min && current->value <= max)
+			count++;
+		current = current->next;
+		i++;
+	}
+	return (count);
 }
