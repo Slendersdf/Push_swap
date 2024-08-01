@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 21:17:01 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/30 22:41:46 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/08/01 20:38:51 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	sort_100(t_stack *a, t_stack *b)
 		process_chunk(a, b, min + i * chunk_range, chunk_range);
 		i++;
 	}
+	sort_remaining(a);
 	sort_b_stack(a, b);
 }
 
@@ -62,4 +63,12 @@ void	sort_b_stack(t_stack *a, t_stack *b)
 		move_to_top(b, max_pos, 'b');
 		pa(a, b);
 	}
+}
+
+void	sort_remaining(t_stack *a)
+{
+	if (a->size == 2 && a->head->value > a->head->next->value)
+		sa(a);
+	else if (a->size == 3)
+		sort_three(a);
 }

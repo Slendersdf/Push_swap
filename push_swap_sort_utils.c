@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 22:31:29 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/30 22:38:09 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/08/01 20:38:12 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,15 @@ int	find_position(t_stack *stack, int value)
 void	move_to_top(t_stack *stack, int pos, char stack_name)
 {
 	int	moves;
+	int	half_size;
 
 	moves = pos;
-	if (moves > stack->size / 2)
-		moves = stack->size - moves;
+	half_size = stack->size / 2;
+	if (pos > half_size)
+		moves = stack->size - pos;
 	while (moves > 0)
 	{
-		if (pos <= stack->size / 2)
+		if (pos <= half_size)
 		{
 			if (stack_name == 'a')
 				ra(stack);

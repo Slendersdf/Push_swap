@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 20:13:29 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/30 23:06:20 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/08/01 20:38:45 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ void	sort_500(t_stack *a, t_stack *b)
 	i = 0;
 	while (i < total_chunks)
 	{
-		process_chunk(a, b, min + (i * chunk_range), chunk_range);
+		process_chunk(a, b, min + i * chunk_range, chunk_range);
 		i++;
 	}
+	sort_remaining(a);
 	sort_b_stack(a, b);
 }

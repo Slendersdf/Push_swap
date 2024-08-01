@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:49:38 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/07/31 19:50:47 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/08/01 20:37:24 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	sort_100(t_stack *a, t_stack *b);
 int		find_max(t_stack *stack);
 void	process_chunk(t_stack *a, t_stack *b, int chunk_min, int chunk_range);
 void	sort_b_stack(t_stack *a, t_stack *b);
+void	sort_remaining(t_stack *a);
 
 // 500 elements
 void	sort_500(t_stack *a, t_stack *b);
