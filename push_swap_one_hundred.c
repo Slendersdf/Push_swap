@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 21:17:01 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/08/01 20:38:51 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/08/02 16:13:16 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,15 @@ void	sort_b_stack(t_stack *a, t_stack *b)
 
 void	sort_remaining(t_stack *a)
 {
-	if (a->size == 2 && a->head->value > a->head->next->value)
-		sa(a);
-	else if (a->size == 3)
-		sort_three(a);
+	t_stack b;
+
+	b.head = NULL;
+	b.size = 0;
+	while (a->size > 0)
+	{
+		move_to_top(a, find_position(a, find_min(a)), 'a');
+		pb(a, &b);
+	}
+	while (b.size > 0)
+		pa(a, &b);
 }

@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 15:49:38 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/08/01 20:37:24 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/08/02 16:05:00 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		parse_args_helper(int argc, char **argv, t_stack *a);
 
 // Tempo Sorting functions
 void	sort_three(t_stack *a);
-void	sort_nine(t_stack *a, t_stack *b);
+void	sort_five(t_stack *a, t_stack *b);
 void	sort_stack(t_stack *a, t_stack *b);
 
 // ft_split

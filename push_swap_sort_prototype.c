@@ -6,7 +6,7 @@
 /*   By: fpaulas- <fpaulas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/22 16:03:55 by fpaulas-          #+#    #+#             */
-/*   Updated: 2024/08/01 19:23:55 by fpaulas-         ###   ########.fr       */
+/*   Updated: 2024/08/02 16:04:49 by fpaulas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	sort_three(t_stack *a)
 		rra(a);
 }
 
-void	sort_nine(t_stack *a, t_stack *b)
+void	sort_five(t_stack *a, t_stack *b)
 {
 	int	min;
 	int	pos;
@@ -63,9 +63,9 @@ void	sort_stack(t_stack *a, t_stack *b)
 	else if (a->size == 3)
 		sort_three(a);
 	else if (a->size <= 5)
-		sort_nine(a, b);
+		sort_five(a, b);
 	else if (a->size <= 100)
 		sort_100(a, b);
-	else if (a->size <= 500)
+	else if (a->size >= 101)
 		sort_500(a, b);
 }
